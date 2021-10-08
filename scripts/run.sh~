@@ -1,0 +1,13 @@
+
+InputFilePath=""
+
+InputFileName=egmTree.root
+
+OutputFile=output_PhotonTree.root
+
+MaxEvent=-1
+ReportEvery=1000
+EvtWeightXS=1.0
+
+echo "Running... ./photonTreeProducer.exe $InputFilePath$InputFileName $OutputFile $MaxEvent $ReportEvery $EvtWeightXS"
+./photonTreeProducer.exe $InputFilePath$InputFileName $OutputFile $MaxEvent $ReportEvery $EvtWeightXS

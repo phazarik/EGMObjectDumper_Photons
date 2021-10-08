@@ -1,0 +1,15 @@
+universe = vanilla
++JobFlavour = "workday"
+executable  = EXEC.sh
+
+ShouldTransferFiles  = yes
+Transfer_Input_Files =  photonTreeProducer.h,photonTreeProducer.C,main.C,Makefile
+
+output      = Out_$(Process).out
+error       = Out_$(Process).err
+log         = Out_$(Process).log
+
+#requirements = (OpSysAndVer =?= "CentOS7")
+
+max_retries = 1
+queue 1 
