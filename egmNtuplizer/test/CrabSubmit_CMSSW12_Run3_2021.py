@@ -10,17 +10,29 @@ def submit(config):
         fi.write(config.pythonise_())
 
 samples = [
+    
+    ('/GJet_Pt-10to40_DoubleEMEnriched_TuneCP5_14TeV_Pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v1/MINIAODSIM', 'GJet_10to40'),
+    
+    ('/GJet_Pt-40toInf_DoubleEMEnriched_TuneCP5_14TeV_Pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v1/MINIAODSIM', 'GJet_40toInf'),
+    
+    ('/QCD_Pt-80to120_EMEnriched_TuneCP5_14TeV_pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v1/MINIAODSIM', 'QCD_80to120'),
+    
+    ('/QCD_Pt-120to170_EMEnriched_TuneCP5_14TeV_pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v2/MINIAODSIM', 'QCD_120to170'),
+    
+    ('/QCD_Pt-170to300_EMEnriched_TuneCP5_14TeV_pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v3/MINIAODSIM', 'QCD_170to300'),
+    
+    ('/QCD_Pt-300toInf_EMEnriched_TuneCP5_14TeV_pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v2/MINIAODSIM', 'QCD_300toInf'),
+    
+    ('/TauGun_Pt-15to500_14TeV-pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v2/MINIAODSIM', 'TauGun_15to500')
 
-        ('/TauGun_Pt-15to500_14TeV-pythia8/Run3Summer21MiniAOD-FlatPU0to70_120X_mcRun3_2021_realistic_v5-v2/MINIAODSIM',
-         'TauGun_Pt-15to500_14TeV-pythia8')
 ]
 
 if __name__ == "__main__":
     for dataset, name in samples:
  
         conf = config()
-        submitVersion = "ntuple_Run3_PFID_2021_TauGun_Nov"
-        mainOutputDir = '/store/user/phazarik/%s' % submitVersion
+        submitVersion = "ntuple_PFID_Run3Summer21_v1"
+        mainOutputDir = '/store/group/phys_egamma/phazarik/%s' % submitVersion
 
         conf.General.workArea = 'crab_%s' % submitVersion
         conf.General.transferOutputs = True
@@ -35,7 +47,7 @@ if __name__ == "__main__":
         conf.Data.publication = False
         
         #conf.Data.publishDataName =
-        conf.Site.storageSite = 'T2_IN_TIFR'
+        conf.Site.storageSite = 'T2_CH_CERN'
         
         conf.Data.outLFNDirBase = '%s/%s/' % (mainOutputDir,'mc')
         conf.Data.splitting     = 'FileBased'
